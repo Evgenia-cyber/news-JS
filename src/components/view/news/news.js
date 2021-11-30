@@ -1,3 +1,5 @@
+import placeholderImg from '../../../assets/img/news_placeholder.jpg';
+
 import './news.css';
 
 class News {
@@ -12,9 +14,9 @@ class News {
 
             if (idx % 2) newsClone.querySelector('.news__item').classList.add('alt');
 
-            newsClone.querySelector('.news__meta-photo').style.backgroundImage = `url(${
-                item.urlToImage || 'img/news_placeholder.jpg'
-            })`;
+            const imgSrc = item.urlToImage !== 'null' ? item.urlToImage : placeholderImg;
+
+            newsClone.querySelector('.news__meta-photo').style.backgroundImage = `url(${imgSrc})`;
             newsClone.querySelector('.news__meta-author').textContent = item.author || item.source.name;
             newsClone.querySelector('.news__meta-date').textContent = item.publishedAt
                 .slice(0, 10)

@@ -18,6 +18,10 @@ const baseConfig = {
                 test: /\.css$/i,
                 use: ['style-loader', 'css-loader'],
             },
+            {
+                test: /\.(png|svg|jpg|jpeg|gif|mp3)$/i,
+                type: 'asset/resource',
+            },
         ],
     },
     resolve: {
@@ -26,6 +30,7 @@ const baseConfig = {
     output: {
         filename: 'index.js',
         path: path.resolve(__dirname, '../dist'),
+        assetModuleFilename: 'assets/[name][ext]',
     },
     plugins: [
         // new ESLintPlugin({
