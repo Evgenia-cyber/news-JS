@@ -1,4 +1,4 @@
-import { ENDPOINTS, ServerResponseData } from '../../types/common';
+import { ENDPOINTS } from '../../types/common';
 import AppLoader from './appLoader';
 
 class AppController extends AppLoader {

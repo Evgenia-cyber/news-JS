@@ -1,6 +1,6 @@
-import { ServerResponseData } from '../../types/common';
+import { IEverythingEndpointResponseData, ISourceEndpointResponseData } from '../../types/common';
 import AppController from '../controller/controller';
-import { AppView } from '../view/appView';
+import AppView from '../view/appView';
 
 class App {
     controller: AppController;
@@ -15,9 +15,9 @@ class App {
         document
             .querySelector('.sources')
             .addEventListener('click', (e: MouseEvent) =>
-                this.controller.getNews(e, (data?: ServerResponseData) => this.view.drawNews(data))
+                this.controller.getNews(e, (data?: IEverythingEndpointResponseData) => this.view.drawNews(data))
             );
-        this.controller.getSources((data?: ServerResponseData) => this.view.drawSources(data));
+        this.controller.getSources((data?: ISourceEndpointResponseData) => this.view.drawSources(data));
     }
 }
 
