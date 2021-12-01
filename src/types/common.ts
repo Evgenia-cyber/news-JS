@@ -18,7 +18,7 @@ export enum ENDPOINTS {
 }
 
 export interface IOptions {
-    apiKey?: string;
+    readonly apiKey?: string;
     sources?: string;
 }
 
