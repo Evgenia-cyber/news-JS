@@ -19,12 +19,18 @@ header h1 {
 }
 
 main {
+    min-height: calc(100vh - 140px - 120px);
     padding-left: 30px;
     padding-right: 30px;
 }
 @media (max-width: 550px) {
     main {
         padding: 0;
+    }
+}
+@media (max-width: 350px) {
+    main {
+        min-height: calc(100vh - 150px - 160px);
     }
 }
 
