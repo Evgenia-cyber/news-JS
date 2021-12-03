@@ -12,24 +12,104 @@ header h1 {
     font-size: 40px;
     font-weight: 800;
 }
+@media (max-width: 350px) {
+    header h1 {
+        margin: 0;
+    }
+}
 
-footer {
-    height: 100px;
+main {
+    min-height: calc(100vh - 140px - 120px);
+    padding-left: 30px;
+    padding-right: 30px;
+}
+@media (max-width: 550px) {
+    main {
+        padding: 0;
+    }
+}
+@media (max-width: 350px) {
+    main {
+        min-height: calc(100vh - 150px - 160px);
+    }
+}
+
+::-webkit-scrollbar {
+    height: 8px; /* высота для горизонтального скролла */
+    width: 0; /* ширина для вертикального скролла - срываем вертикальный скролл */
+}
+
+::-webkit-scrollbar-button {
+    /* скрываем кнопки, чтобы не было ни кнопок, ни отступов */
+    height: 0;
+    width: 0;
+}
+
+/* стили для полосы */
+.sources::-webkit-scrollbar-track {
+    border-radius: 50px;
+    background: linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0) 30%,
+        #30c5ff 30%,
+        #30c5ff 60%,
+        rgba(0, 0, 0, 0) 60%,
+        rgba(0, 0, 0, 0) 100%
+    );
+}
+
+/* стили для ползунка */
+.sources::-webkit-scrollbar-thumb {
+    width: 100px;
+    border-radius: 50px;
+    background: linear-gradient(0deg, #3fcc59, #000000, #3fcc59);
+    box-shadow: 0px -3px 6px 0px rgb(45 107 57);
+}
+@media (max-width: 550px) {
+    .sources::-webkit-scrollbar-thumb {
+        width: 50px;
+    }
+}
+
+.footer {
+    padding: 30px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    color: #ffffff;
 }
-footer .copyright {
-    font-size: 14px;
-    color: #333;
-    text-align: center;
+@media (max-width: 350px) {
+    .footer {
+        flex-direction: column;
+    }
 }
-footer .copyright a {
-    color: #444;
+
+.footer-author {
+    text-decoration: none;
+    color: #30c5ff;
+    transition: color 0.3s;
 }
-footer .copyright a:hover {
-    color: #555;
+
+.footer-author:hover {
+    color: #69db7e;
 }
-footer .copyright:before {
-    content: '©';
+
+.rs-school {
+    width: 70px;
+    height: auto;
+    padding: 2px;
+    background-color: #30c5ff;
+    transition: 0.3s;
+}
+
+.rs-school:hover,
+.rs-school:focus {
+    background-color: #3fcc59;
+}
+
+.rs-school:hover {
+    box-shadow: 0 0.5em 0.5em -0.4em #3fcc59;
+    transform: translateY(-0.25em);
 }

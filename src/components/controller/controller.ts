@@ -1,18 +1,20 @@
+import { ENDPOINTS } from '../../types/common';
 import AppLoader from './appLoader';
 
 class AppController extends AppLoader {
-    getSources(callback) {
+    getSources(callback: () => void) {
         super.getResp(
             {
-                endpoint: 'sources',
+                endpoint: ENDPOINTS.SOURCES,
+                options: {},
             },
             callback
         );
     }
 
-    getNews(e, callback) {
-        let target = e.target;
-        const newsContainer = e.currentTarget;
+    getNews(e: MouseEvent, callback: () => void) {
+        let target = e.target as Element;
+        const newsContainer = e.currentTarget as Element;
 
         while (target !== newsContainer) {
             if (target.classList.contains('source__item')) {
@@ -21,7 +23,7 @@ class AppController extends AppLoader {
                     newsContainer.setAttribute('data-source', sourceId);
                     super.getResp(
                         {
-                            endpoint: 'everything',
+                            endpoint: ENDPOINTS.EVERYTHING,
                             options: {
                                 sources: sourceId,
                             },
@@ -31,7 +33,7 @@ class AppController extends AppLoader {
                 }
                 return;
             }
-            target = target.parentNode;
+            target = target.parentNode as Element;
         }
     }
 }
